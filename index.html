@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fluxon — AI Automation Infrastructure</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --bg: #05070d;
+  --grid: rgba(0,255,255,0.08);
+  --primary: #00f0ff;
+  --accent: #ff3caa;
+  --text: #e6faff;
+  --muted: #6c8a99;
+}
+
+/* RESET */
+* { margin:0; padding:0; box-sizing:border-box; }
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Inter', sans-serif;
+  overflow-x: hidden;
+}
+
+/* TRON GRID BACKGROUND */
+body::before {
+  content:"";
+  position: fixed;
+  inset:0;
+  background-image:
+    linear-gradient(var(--grid) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid) 1px, transparent 1px);
+  background-size: 60px 60px;
+  z-index:-1;
+}
+
+/* NAV */
+nav {
+  display:flex;
+  justify-content:space-between;
+  padding:20px 40px;
+  border-bottom:1px solid rgba(255,255,255,0.05);
+}
+
+.logo {
+  font-family:'Orbitron';
+  font-size:20px;
+  color:var(--primary);
+}
+
+.nav-btn {
+  border:1px solid var(--primary);
+  padding:10px 20px;
+  text-decoration:none;
+  color:var(--primary);
+  transition:0.3s;
+}
+.nav-btn:hover {
+  background:var(--primary);
+  color:black;
+}
+
+/* HERO */
+.hero {
+  display:flex;
+  flex-wrap:wrap;
+  min-height:90vh;
+}
+
+.left {
+  flex:1;
+  padding:80px 50px;
+}
+
+h1 {
+  font-family:'Orbitron';
+  font-size:48px;
+  line-height:1.2;
+  margin-bottom:20px;
+}
+
+h1 span {
+  color:var(--primary);
+  text-shadow:0 0 10px var(--primary);
+}
+
+.desc {
+  color:var(--muted);
+  max-width:400px;
+  margin-bottom:30px;
+}
+
+/* FORM */
+.form {
+  display:flex;
+  border:1px solid var(--primary);
+  max-width:400px;
+}
+
+.form input {
+  flex:1;
+  padding:12px;
+  background:transparent;
+  border:none;
+  color:white;
+}
+
+.form button {
+  background:var(--primary);
+  border:none;
+  padding:12px 20px;
+  cursor:pointer;
+}
+
+.form button:hover {
+  background:var(--accent);
+}
+
+.success {
+  display:none;
+  margin-top:10px;
+  color:var(--primary);
+}
+
+/* RIGHT SIDE */
+.right {
+  flex:1;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:40px;
+}
+
+.panel {
+  border:1px solid var(--primary);
+  padding:30px;
+  width:300px;
+  box-shadow:0 0 30px rgba(0,255,255,0.1);
+}
+
+.stat {
+  margin-bottom:20px;
+}
+
+.stat h2 {
+  color:var(--primary);
+  font-family:'Orbitron';
+}
+
+/* CTA */
+.cta {
+  text-align:center;
+  padding:100px 20px;
+}
+
+.cta h2 {
+  font-family:'Orbitron';
+  font-size:36px;
+  margin-bottom:20px;
+}
+
+.cta span {
+  color:var(--accent);
+}
+
+/* FOOTER */
+footer {
+  text-align:center;
+  padding:20px;
+  color:var(--muted);
+}
+
+/* RESPONSIVE */
+@media(max-width:768px){
+  .hero { flex-direction:column; }
+}
+</style>
+</head>
+
+<body>
+
+<nav>
+  <div class="logo">FLUXON</div>
+  <a href="#waitlist" class="nav-btn">Get Access</a>
+</nav>
+
+<section class="hero">
+
+<div class="left">
+  <h1>
+    Automate <span>80%</span> of your work<br>
+    in 14 days
+  </h1>
+
+  <p class="desc">
+    Stop wasting hours on repetitive tasks. Fluxon builds AI systems
+    that run your workflows automatically.
+  </p>
+
+  <div class="form" id="waitlist">
+    <input type="email" id="email" placeholder="Enter email">
+    <button onclick="join()">Start →</button>
+  </div>
+
+  <div class="success" id="success">
+    ✓ You're in. We'll contact you soon.
+  </div>
+</div>
+
+<div class="right">
+  <div class="panel">
+    <div class="stat">
+      <h2>12×</h2>
+      <p>Faster workflows</p>
+    </div>
+    <div class="stat">
+      <h2>94%</h2>
+      <p>Less manual work</p>
+    </div>
+    <div class="stat">
+      <h2>3h</h2>
+      <p>Saved daily</p>
+    </div>
+  </div>
+</div>
+
+</section>
+
+<section class="cta">
+  <h2>The future is <span>automated</span></h2>
+  <p>Limited early access available</p>
+</section>
+
+<footer>
+  © 2026 Fluxon
+</footer>
+
+<script>
+async function join(){
+  const email = document.getElementById('email').value;
+  const valid = /^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$/.test(email);
+
+  if(!valid){
+    alert("Enter valid email");
+    return;
+  }
+
+  document.getElementById('success').style.display = 'block';
+}
+</script>
+
+</body>
+</html>
